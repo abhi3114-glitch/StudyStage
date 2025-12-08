@@ -1,0 +1,180 @@
+.timeline {
+    margin-top: var(--spacing-2xl);
+}
+
+.timelineTitle {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xl);
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+.timelineContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.dateGroup {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.dateHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--bg-tertiary);
+}
+
+.dateLabel {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.dateBadge {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+}
+
+.entries {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.entry {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    transition: all var(--transition-base);
+    animation: slideUp 0.4s ease-out backwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.entry::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.entry:hover {
+    border-color: rgba(167, 139, 250, 0.2);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.entry:hover::before {
+    opacity: 1;
+}
+
+.entryContent {
+    flex: 1;
+}
+
+.entryText {
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.entryTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tag {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(96, 165, 250, 0.15));
+    color: var(--accent-purple);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    transition: all var(--transition-fast);
+}
+
+.tag:hover {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.25), rgba(96, 165, 250, 0.25));
+    border-color: var(--accent-purple);
+}
+
+.deleteBtn {
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-sm);
+}
+
+.deleteBtn:hover {
+    opacity: 1;
+    background: rgba(244, 114, 182, 0.1);
+    transform: scale(1.1);
+}
+
+.empty {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    margin-top: var(--spacing-xl);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.emptyTitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.emptyText {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+    .timelineTitle {
+        font-size: 1.5rem;
+    }
+
+    .entry {
+        flex-direction: column;
+    }
+
+    .deleteBtn {
+        align-self: flex-end;
+    }
+}
